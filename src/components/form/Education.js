@@ -16,6 +16,8 @@ export default class Education extends Component {
         <input type="text" id="Year"/>
         <label htmlFor="Degree"> Degree</label>
         <input type="text" id="Degree"/>
+        <label htmlFor="Awards"> Awards</label>
+        <input type="text" id="Awards"/>
       </fieldset>
     )
   }

@@ -13,6 +13,8 @@ export default class FormCon extends Component {
     return (
       <form>
         <Education/>
+        <General/>
+        <Experience/>
       </form>
     )
   }
