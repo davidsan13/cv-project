@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  gap: 1rem;
+}
+
+label {
+  display: none;
+}
+
+textarea {
+  height: 10rem;
+  resize: none;
+}

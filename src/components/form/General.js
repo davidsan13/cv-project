@@ -7,17 +7,18 @@ export default class General extends Component {
 
   render() {
     return (
-      <fieldset>
-        <legend>Contact Information</legend>
-        <label htmlFor="fName"> Full Name</label>
-        <input type="text" id="fName"/>
+      <>
+        <label htmlFor="fName"> First Name</label>
+        <input type="text" id="fName" placeholder="First Name"/>
+        <label htmlFor="lName"> Last Name</label>
+        <input type="text" id="lName" placeholder="Last Name"/>
         <label htmlFor="pNumber"> Phone Number</label>
-        <input type="text" id="pNumber"/>
+        <input type="text" id="pNumber" placeholder="Phone Number"/>
         <label htmlFor="email"> Email</label>
-        <input type="text" id="email"/>
+        <input type="text" id="email" placeholder="Email"/>
         <label htmlFor="website"> Personal Website</label>
-        <input type="text" id="website"/>
-      </fieldset>
+        <input type="text" id="website" placeholder="Personal Website"/>
+      </>
     )
   }
 }

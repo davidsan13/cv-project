@@ -6,19 +6,18 @@ export default class Experience extends Component {
   }
   render() {
     return (
-      <fieldset>
-        <legend>Experience</legend>
+      <>
         <label htmlFor="title"> Position Title</label>
-        <input type="text" id="title"/>
+        <input type="text" id="title" placeholder="Position Title"/>
         <label htmlFor="company"> Company</label>
-        <input type="text" id="company"/>
+        <input type="text" id="company" placeholder="Company"/>
+        <label htmlFor="location"> City</label>
+        <input type="text" id="location" placeholder="City"/>
         <label htmlFor="Duration"> Duration</label>
-        <input type="text" id="Duration"/>
-        <label htmlFor="location"> City, State</label>
-        <input type="text" id="location"/>
+        <input type="text" id="Duration" placeholder="Duration"/>
         <label htmlFor="resp"> Responsibilities</label>
-        <input type="text" id="resp"/>
-      </fieldset>
+        <textarea type="text" id="resp" placeholder="Responsibilities"/>
+      </>
     )
   }
 }
