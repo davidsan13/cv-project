@@ -10,15 +10,15 @@ export default class Education extends Component {
     return (
       <>
         <label htmlFor="School"> School</label>
-        <input type="text" id="School" placeholder="School"/>
+        <input type="text" id="School" name="school" placeholder="School"/>
         <label htmlFor="Major"> Major</label>
-        <input type="text" id="Major" placeholder="Major"/>
+        <input type="text" id="Major" name="major" placeholder="Major"/>
         <label htmlFor="Year"> Graduation Year</label>
-        <input type="text" id="Year" placeholder="Graduation Year"/>
+        <input type="text" id="Year" name="year"placeholder="Graduation Year"/>
         <label htmlFor="Degree"> Degree</label>
-        <input type="text" id="Degree" placeholder="Degree"/>
+        <input type="text" id="Degree" name="degree" placeholder="Degree"/>
         <label htmlFor="Awards"> Awards</label>
-        <input type="text" id="Awards" placeholder="Awards"/>
+        <input type="text" id="Awards" name="awards" placeholder="Awards"/>
         <button onClick={onButtonClicked}>Delete</button>
       </>
     )

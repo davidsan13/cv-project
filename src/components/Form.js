@@ -30,34 +30,42 @@ export default class FormCon extends Component {
       edcount: this.state.edcount - 1,
     });
   }
+
   exCountUp(e) {
     e.preventDefault()
     this.setState({
       excount: this.state.excount + 1,
     });
   }
+  exCountDown(e) {
+    e.preventDefault()
+    this.setState({
+      excount: this.state.excount - 1,
+    });
+  }
 
   render() {
     return (
-      <form>
+      <form method="post">
         <fieldset>
           <legend>Personal Information</legend>
           <General />
         </fieldset>
         <fieldset>
           <legend>Education</legend>
-          { [...Array(this.state.edcount)].map((_, i) => <Education keys={i} onButtonClicked={this.edCountDown}/>) }
+          { [...Array(this.state.edcount)].map((_, i) => <Education key={i} onButtonClicked={this.edCountDown}/>) }
           
           <button onClick={this.edCountUp}> Add</button>
-          <p>{this.state.edcount}</p>
         </fieldset>
         <fieldset>
           <legend>Experience</legend>
-          <Experience/>
+          { [...Array(this.state.excount)].map((_, i) => <Experience key={i} onButtonClicked={this.exCountDown}/>) }
+
          
           <button onClick={this.exCountUp}> Add</button>
-          <p>{this.state.excount}</p>
+          
         </fieldset>
+        <button type="submit">Submit</button>
       </form>
     )
   }

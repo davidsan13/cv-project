@@ -9,15 +9,15 @@ export default class General extends Component {
     return (
       <>
         <label htmlFor="fName"> First Name</label>
-        <input type="text" id="fName" placeholder="First Name"/>
+        <input type="text" id="fName" name="fName" placeholder="First Name" required/>
         <label htmlFor="lName"> Last Name</label>
-        <input type="text" id="lName" placeholder="Last Name"/>
+        <input type="text" id="lName" name="lName" placeholder="Last Name" required/>
         <label htmlFor="pNumber"> Phone Number</label>
-        <input type="text" id="pNumber" placeholder="Phone Number"/>
+        <input type="text" id="pNumber" name="pNumber" placeholder="Phone Number"/>
         <label htmlFor="email"> Email</label>
-        <input type="text" id="email" placeholder="Email"/>
+        <input type="email" id="email" name="email" placeholder="Email"/>
         <label htmlFor="website"> Personal Website</label>
-        <input type="text" id="website" placeholder="Personal Website"/>
+        <input type="text" id="website" name="website" placeholder="Personal Website"/>
       </>
     )
   }
