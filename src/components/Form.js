@@ -16,8 +16,37 @@ export default class FormCon extends Component {
     this.edCountUp = this.edCountUp.bind(this);
     this.edCountDown = this.edCountDown.bind(this)
     this.exCountUp = this.exCountUp.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
+  handleChange = (e) => {
+    this.setState({
+      education: {
+        school: e.target.value
+      }
+    })
+  }
+
+  handleMajor = (e) => {
+    this.setState({
+      education: {
+        major: e.target.value
+      }
+    })
+  }
+
+  onSubmitTask = (e) => {
+    e.preventDefault();
+    console.log(this.state.schools)
+    this.setState({
+      schools: this.state.schools.concat(this.state.education),
+      education: {school: "", major: ""}
+    })
+    console.log(this.state.schools)
+
+  }
+
+ 
   edCountUp(e) {
     e.preventDefault()
     this.setState({
@@ -46,14 +75,19 @@ export default class FormCon extends Component {
 
   render() {
     return (
-      <form method="post">
+      <>
         <fieldset>
           <legend>Personal Information</legend>
           <General />
         </fieldset>
         <fieldset>
           <legend>Education</legend>
-          { [...Array(this.state.edcount)].map((_, i) => <Education key={i} onButtonClicked={this.edCountDown}/>) }
+          {[...Array(this.state.edcount)].map((_, i) => 
+          <Education key={i} 
+          onButtonClicked={this.edCountDown} 
+        
+          />
+          )}
           
           <button onClick={this.edCountUp}> Add</button>
         </fieldset>
@@ -65,8 +99,7 @@ export default class FormCon extends Component {
           <button onClick={this.exCountUp}> Add</button>
           
         </fieldset>
-        <button type="submit">Submit</button>
-      </form>
+      </>
     )
   }
 }
