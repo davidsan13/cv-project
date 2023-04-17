@@ -1,91 +1,101 @@
 import React, { Component } from "react";
 import uniqid from 'uniqid';
+import Save from "./savBtn";
+import Button from "./buttons";
 
 export default class Education extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: uniqid(),
-      school: '',
-      major: '',
-      year: '',
-      degree: '',
-      award: '',
+      ed: {
+        school: "",
+        major: "", 
+        year: "",
+        degree: "",
+        id: uniqid(), 
+      },
       schools: [],
       edit: false,
     }
   }
+
+
   handleChange = (e) => {
-    this.setState({
-        school: e.target.value
-    })
+    const {name, value} = e.target
+    this.setState((prevState) => {
+      return {...prevState, ed: {...prevState.ed,[name]:value}
+    }})
   }
 
-  handleMajor = (e) => {
-    this.setState({
-      major: e.target.value
-    })
+  sub = () => {
+    this.setState((prevState) => {
+      return {...prevState,ed: {
+        school: "",
+        major: "", 
+        year: "",
+        degree: "",
+        id: uniqid(), 
+      }
+    }})
   }
 
-  handleYear = (e) => {
-    this.setState({
-      year: e.target.value
-    })
-  }
-
-  handleDegree = (e) => {
-    this.setState({
-      degree: e.target.value
-    })
-  }
-
-  toggleEdit = () => {
+  toggleEdit = (e) => {
+    // e.preventDefault()
+    // console.log(this.state.edit)
     this.setState(prevState => ({
-      edit: !prevState.edit
+      // edit: !prevState.edit,
+      // id: prevState.id,
+      // return {
+      //   ...prevState,
+      //   ed: {...prevState.ed, school: prevState.school}
+      // }
+     edit: !prevState.edit
     }))
+    
+    console.log(this.state.edit)
   }
-  onSubmitTask = (e) => {
-    e.preventDefault();
-    this.setState({
-      schools: this.state.schools.concat({
-        id: this.state.id,
-
-        school: this.state.school, 
-        major: this.state.major,
-        year: this.state.year,
-        degree: this.state.degree
-      }),
-      school: "", major: "", year: "", degree: "", id: uniqid(),
-    })
-    this.toggleEdit()
-    console.log(this.state.schools)
-  }
+  // onSubmitTask = (e) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     schools: this.state.schools.concat(
+  //       this.state.ed),
+  //     school: "", major: "", year: "", degree: "", id: uniqid(),
+  //   })
+  //   // this.toggleEdit()
+  //   console.log(this.state.ed)
+  // }
   
   render() {
-    const {onButtonClicked, school, major, year, degree, schools} = this.state
-    // const {keys} = this.props
+    const {ed, edit} = this.state
+    const {submit, onButtonClicked} = this.props
+  
     return (
-      <form onSubmit={this.onSubmitTask}>
-
+      <form >
+{/* onSubmit={(e) => {e.preventDefault(); submit(ed); this.toggleEdit()}} */}
         <label htmlFor="School"> School</label>
-        <input type="text" id="School" name="school" placeholder="School" value={school} onChange={this.handleChange}/>
+        <input type="text" id="School" name="school" placeholder="School" value={ed.school} onChange={this.handleChange} disabled={edit}/>
         <label htmlFor="Major"> Major</label>
-        <input type="text" id="Major" name="major" placeholder="Major" value={major} onChange={this.handleMajor} />
+        <input type="text" id="Major" name="major" placeholder="Major" value={ed.major} onChange={this.handleChange} />
         <label htmlFor="Year"> Graduation Year</label>
-        <input type="text" id="Year" name="year" value={year} placeholder="Graduation Year" onChange={this.handleYear}/>
+        <input type="text" id="Year" name="year" value={ed.year} placeholder="Graduation Year" onChange={this.handleChange}/>
         <label htmlFor="Degree"> Degree</label>
-        <input type="text" id="Degree" name="degree" placeholder="Degree" value={degree} onChange={this.handleDegree}/>
+        <input type="text" id="Degree" name="degree" placeholder="Degree" value={ed.degree} onChange={this.handleChange}/>
         <label htmlFor="Awards"> Awards</label>
-        <input type="text" id="Awards" name="awards" placeholder="Awards" />
+        <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
         <button onClick={onButtonClicked}>Delete</button>
-        <button type="submit">Save</button>
-        <ul>
-          
-          {/* {schools.map((item) => {
-            return (<><li> {item} </li></>)
-          })} */}
-        </ul>
+      
+        {!edit? (
+          <button onClick={(e) => {e.preventDefault(); this.toggleEdit()}}> Edit</button>)
+        : (<button type="submit" onClick={(e) => {e.preventDefault(); this.toggleEdit(); submit(e,ed); }}>Save</button>
+        )}
+        {/* {!edit? (
+          <Button edit={this.toggleEdit}/>
+         )
+        : (<Save save={submit}/>
+        )} */}
+        
+     
       </form>
     )
   }

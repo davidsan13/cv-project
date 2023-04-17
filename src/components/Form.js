@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Education from "./form/Education";
 import General from "./form/General";
 import Experience from "./form/Experience";
+import uniqid from 'uniqid';
 
 
 export default class FormCon extends Component {
@@ -9,6 +10,9 @@ export default class FormCon extends Component {
     super(props);
 
     this.state = {
+      
+      schools: [],
+      // edit: false,
       edcount: 1,
       excount: 1,
     };
@@ -20,30 +24,29 @@ export default class FormCon extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({
-      education: {
-        school: e.target.value
-      }
-    })
+    const {name, value} = e.target
+    this.setState((prevState) => {
+      return {...prevState, ed: {...prevState.ed,[name]:value}
+    }})
+ 
   }
-
   handleMajor = (e) => {
     this.setState({
       education: {
         major: e.target.value
-      }
+      },
+      
     })
   }
 
-  onSubmitTask = (e) => {
-    e.preventDefault();
-    console.log(this.state.schools)
+  onSubmitTask = (e, ed) => {
+    e.preventDefault()
     this.setState({
-      schools: this.state.schools.concat(this.state.education),
-      education: {school: "", major: ""}
+      schools: this.state.schools.concat(
+        ed),
     })
+    // this.toggleEdit()
     console.log(this.state.schools)
-
   }
 
  
@@ -84,8 +87,12 @@ export default class FormCon extends Component {
           <legend>Education</legend>
           {[...Array(this.state.edcount)].map((_, i) => 
           <Education key={i} 
-          onButtonClicked={this.edCountDown} 
+          onButtonClicked={this.edCountDown}
+          // handleChange={this.handleChange}
+          // ed={this.state.ed}
         
+          edit={this.state.edit}
+          submit={this.onSubmitTask}
           />
           )}
           
