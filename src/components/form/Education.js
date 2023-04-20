@@ -15,11 +15,10 @@ export default class Education extends Component {
         degree: "",
         id: uniqid(), 
       },
-      schools: [],
+      section: "schools",
       edit: false,
     }
   }
-
 
   handleChange = (e) => {
     const {name, value} = e.target
@@ -28,51 +27,18 @@ export default class Education extends Component {
     }})
   }
 
-  sub = () => {
-    this.setState((prevState) => {
-      return {...prevState,ed: {
-        school: "",
-        major: "", 
-        year: "",
-        degree: "",
-        id: uniqid(), 
-      }
-    }})
-  }
-
   toggleEdit = (e) => {
-    // e.preventDefault()
-    // console.log(this.state.edit)
     this.setState(prevState => ({
-      // edit: !prevState.edit,
-      // id: prevState.id,
-      // return {
-      //   ...prevState,
-      //   ed: {...prevState.ed, school: prevState.school}
-      // }
      edit: !prevState.edit
     }))
-    
-    console.log(this.state.edit)
   }
-  // onSubmitTask = (e) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     schools: this.state.schools.concat(
-  //       this.state.ed),
-  //     school: "", major: "", year: "", degree: "", id: uniqid(),
-  //   })
-  //   // this.toggleEdit()
-  //   console.log(this.state.ed)
-  // }
-  
+ 
   render() {
-    const {ed, edit} = this.state
+    const {ed, edit, section} = this.state
     const {submit, onButtonClicked} = this.props
   
     return (
       <form >
-{/* onSubmit={(e) => {e.preventDefault(); submit(ed); this.toggleEdit()}} */}
         <label htmlFor="School"> School</label>
         <input type="text" id="School" name="school" placeholder="School" value={ed.school} onChange={this.handleChange} disabled={edit}/>
         <label htmlFor="Major"> Major</label>
@@ -84,18 +50,12 @@ export default class Education extends Component {
         <label htmlFor="Awards"> Awards</label>
         <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
         <button onClick={onButtonClicked}>Delete</button>
-      
-        {!edit? (
-          <button onClick={(e) => {e.preventDefault(); this.toggleEdit()}}> Edit</button>)
-        : (<button type="submit" onClick={(e) => {e.preventDefault(); this.toggleEdit(); submit(e,ed); }}>Save</button>
-        )}
-        {/* {!edit? (
-          <Button edit={this.toggleEdit}/>
-         )
-        : (<Save save={submit}/>
-        )} */}
-        
-     
+        <button onClick={(e) => {
+          e.preventDefault(); 
+          this.toggleEdit(); 
+          !edit && submit(ed,section, this.state)}}> 
+          {edit? "Edit": "Save"}
+        </button>
       </form>
     )
   }

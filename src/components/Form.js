@@ -10,9 +10,7 @@ export default class FormCon extends Component {
     super(props);
 
     this.state = {
-      
       schools: [],
-      // edit: false,
       edcount: 1,
       excount: 1,
     };
@@ -21,6 +19,7 @@ export default class FormCon extends Component {
     this.edCountDown = this.edCountDown.bind(this)
     this.exCountUp = this.exCountUp.bind(this);
     this.handleChange = this.handleChange.bind(this)
+    this.onSubmitTask = this.onSubmitTask.bind(this)
   }
 
   handleChange = (e) => {
@@ -30,23 +29,28 @@ export default class FormCon extends Component {
     }})
  
   }
-  handleMajor = (e) => {
-    this.setState({
-      education: {
-        major: e.target.value
-      },
-      
-    })
-  }
+  
+  onSubmitTask = (item, section,) => {
+    const result = this.state[section].filter(school => school.id === item.id)
 
-  onSubmitTask = (e, ed) => {
-    e.preventDefault()
-    this.setState({
-      schools: this.state.schools.concat(
-        ed),
+    this.setState(prevState => {
+      const newArray = []
+      for(let i = 0; i < prevState[section].length; i++) {
+        const currentItem = prevState[section][i]
+        if(currentItem.id === item.id) {
+          const updatedSchools = item
+          newArray.push(updatedSchools)
+        } else {
+          newArray.push(currentItem)
+        }
+      }
+      return {
+        [section]: result.length > 0 ? 
+        newArray : 
+        this.state[section].concat(item)
+      }
     })
-    // this.toggleEdit()
-    console.log(this.state.schools)
+   
   }
 
  
@@ -91,7 +95,7 @@ export default class FormCon extends Component {
           // handleChange={this.handleChange}
           // ed={this.state.ed}
         
-          edit={this.state.edit}
+          handleEdit={this.handleEdit}
           submit={this.onSubmitTask}
           />
           )}
