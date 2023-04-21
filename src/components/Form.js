@@ -11,6 +11,7 @@ export default class FormCon extends Component {
 
     this.state = {
       schools: [],
+      general: [],
       edcount: 1,
       excount: 1,
     };
@@ -50,7 +51,7 @@ export default class FormCon extends Component {
         this.state[section].concat(item)
       }
     })
-   
+    console.log(this.state.general)
   }
 
  
@@ -82,35 +83,34 @@ export default class FormCon extends Component {
 
   render() {
     return (
-      <>
+      <form onSubmit={this.handleSubmit}>
         <fieldset>
           <legend>Personal Information</legend>
-          <General />
+          <General 
+            handleSubmit={this.onSubmitTask}
+          />
         </fieldset>
         <fieldset>
           <legend>Education</legend>
           {[...Array(this.state.edcount)].map((_, i) => 
           <Education key={i} 
           onButtonClicked={this.edCountDown}
-          // handleChange={this.handleChange}
-          // ed={this.state.ed}
-        
           handleEdit={this.handleEdit}
-          submit={this.onSubmitTask}
-          />
+          submit={this.onSubmitTask}/>
           )}
           
           <button onClick={this.edCountUp}> Add</button>
         </fieldset>
         <fieldset>
           <legend>Experience</legend>
-          { [...Array(this.state.excount)].map((_, i) => <Experience key={i} onButtonClicked={this.exCountDown}/>) }
-
-         
+          { [...Array(this.state.excount)].map((_, i) => 
+          <Experience key={i} 
+          onButtonClicked={this.exCountDown}/>
+          )}
           <button onClick={this.exCountUp}> Add</button>
-          
         </fieldset>
-      </>
+        <button> Submit</button>
+      </form>
     )
   }
 }

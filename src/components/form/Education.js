@@ -38,7 +38,7 @@ export default class Education extends Component {
     const {submit, onButtonClicked} = this.props
   
     return (
-      <form >
+      <>
         <label htmlFor="School"> School</label>
         <input type="text" id="School" name="school" placeholder="School" value={ed.school} onChange={this.handleChange} disabled={edit}/>
         <label htmlFor="Major"> Major</label>
@@ -56,7 +56,7 @@ export default class Education extends Component {
           !edit && submit(ed,section, this.state)}}> 
           {edit? "Edit": "Save"}
         </button>
-      </form>
+      </>
     )
   }
 }
