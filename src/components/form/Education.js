@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import uniqid from 'uniqid';
-import Save from "./savBtn";
-import Button from "./buttons";
 
 export default class Education extends Component {
   constructor(props) {
@@ -49,7 +47,7 @@ export default class Education extends Component {
         <input type="text" id="Degree" name="degree" placeholder="Degree" value={ed.degree} onChange={this.handleChange}/>
         <label htmlFor="Awards"> Awards</label>
         <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
-        <button onClick={onButtonClicked}>Delete</button>
+        <button name='edCount' onClick={onButtonClicked}>Delete</button>
         <button onClick={(e) => {
           e.preventDefault(); 
           this.toggleEdit(); 

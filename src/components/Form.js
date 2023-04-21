@@ -12,15 +12,15 @@ export default class FormCon extends Component {
     this.state = {
       schools: [],
       general: [],
-      edcount: 1,
-      excount: 1,
+      exps: [],
+      edCount: 1,
+      exCount: 1,
     };
-    
-    this.edCountUp = this.edCountUp.bind(this);
-    this.edCountDown = this.edCountDown.bind(this)
-    this.exCountUp = this.exCountUp.bind(this);
+    this.countUp = this.countUp.bind(this)
+    this.countDown = this.countDown.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.onSubmitTask = this.onSubmitTask.bind(this)
+
   }
 
   handleChange = (e) => {
@@ -31,7 +31,7 @@ export default class FormCon extends Component {
  
   }
   
-  onSubmitTask = (item, section,) => {
+  onSubmitTask = (item, section) => {
     const result = this.state[section].filter(school => school.id === item.id)
 
     this.setState(prevState => {
@@ -51,35 +51,27 @@ export default class FormCon extends Component {
         this.state[section].concat(item)
       }
     })
-    console.log(this.state.general)
+    console.log(this.state.exps)
   }
 
  
-  edCountUp(e) {
+  countUp(e) {
     e.preventDefault()
+    const {name} = e.target
     this.setState({
-      edcount: this.state.edcount + 1,
+      [name]: this.state[name] + 1 ,
     });
   }
-  edCountDown(e) {
+ 
+  countDown(e) {
     e.preventDefault()
+    const {name} = e.target
     this.setState({
-      edcount: this.state.edcount - 1,
+      [name]: this.state[name] - 1 ,
     });
   }
 
-  exCountUp(e) {
-    e.preventDefault()
-    this.setState({
-      excount: this.state.excount + 1,
-    });
-  }
-  exCountDown(e) {
-    e.preventDefault()
-    this.setState({
-      excount: this.state.excount - 1,
-    });
-  }
+ 
 
   render() {
     return (
@@ -92,22 +84,24 @@ export default class FormCon extends Component {
         </fieldset>
         <fieldset>
           <legend>Education</legend>
-          {[...Array(this.state.edcount)].map((_, i) => 
+          {[...Array(this.state.edCount)].map((_, i) => 
           <Education key={i} 
-          onButtonClicked={this.edCountDown}
+          onButtonClicked={this.countDown}
           handleEdit={this.handleEdit}
           submit={this.onSubmitTask}/>
           )}
           
-          <button onClick={this.edCountUp}> Add</button>
+          <button name='edCount'onClick={this.countUp}> Add</button>
         </fieldset>
         <fieldset>
           <legend>Experience</legend>
-          { [...Array(this.state.excount)].map((_, i) => 
+          { [...Array(this.state.exCount)].map((_, i) => 
           <Experience key={i} 
-          onButtonClicked={this.exCountDown}/>
+          onButtonClicked={this.countDown}
+          handleSubmit={this.onSubmitTask}
+          />
           )}
-          <button onClick={this.exCountUp}> Add</button>
+          <button name='exCount' onClick={this.countUp}> Add</button>
         </fieldset>
         <button> Submit</button>
       </form>
