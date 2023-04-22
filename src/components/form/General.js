@@ -30,6 +30,7 @@ export default class General extends Component {
     const {handleSubmit} = this.props
     return (
       <>
+        
         <label htmlFor="fName"> First Name</label>
         <input type="text" id="fName" name="fName" value={general.fName} placeholder="First Name" onChange={this.handleChange} required/>
         <label htmlFor="lName"> Last Name</label>

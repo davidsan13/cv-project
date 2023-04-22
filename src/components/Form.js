@@ -3,7 +3,7 @@ import Education from "./form/Education";
 import General from "./form/General";
 import Experience from "./form/Experience";
 import uniqid from 'uniqid';
-
+import './styles.css';
 
 export default class FormCon extends Component {
   constructor(props) {
@@ -77,7 +77,7 @@ export default class FormCon extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <fieldset>
-          <legend>Personal Information</legend>
+          <legend>Personal</legend>
           <General 
             handleSubmit={this.onSubmitTask}
           />
