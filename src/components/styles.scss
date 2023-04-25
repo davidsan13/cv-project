@@ -1,36 +1,131 @@
-fieldset {
+* {
+  margin: 0;
+  padding: 0;
   border: 0;
-  width: 250px;
-  background-color: #f7f8fa;
-  position: relative;
-  padding-top: 50px;
-  margin: 10px;
-  border-radius: 2%;
+  box-sizing: border-box;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-input {
-  min-width: 200px;
-  font-weight: 600;
-  transition: ease-in-out, color .35s ease-in-out;
-  &:focus::placeholder {
-    color: transparent;
-  }
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+hgroup,
+menu,
+section {
+  display: block;
 }
-button {
-  width: 50px;
-}
-legend {
-  font-size: 20px;
-  font-weight: bold;
-  position: absolute;
-  top: 15px;
-  left: 10px;
-}
-form {
-  
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
-  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+button {
+  width: 50px;
+  cursor: pointer;
+  transition: 0.2s all;
+
+  &:hover {
+    filter: brightness(85%)
+  }
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+}
+
+form {
+  width: 28rem;
+  fieldset {
+    border: 0;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    background-color: #f7f8fa;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 1rem;
+    margin: 1rem;
+    border-radius: 2%;
+  }
+  legend {
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+  input {
+    width: 20rem;
+    font-weight: 600;
+    transition: ease-in-out, color .35s ease-in-out;
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+  textarea {
+    width: 20rem;
+  }
+  .btn-add {
+    display: flex;
+    font-size: 2rem;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  
+    
+
+  }
+}
+
+#root {
+  display: flex;
+  justify-content: space-around;
   background-color: #2f3648;
+  .overview {
+    width: 65%;
+    height: 100%;
+    background-color: #f7f8fa;
+    margin: 1rem;
+   
+  }
 }
