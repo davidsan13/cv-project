@@ -53,13 +53,13 @@ export default class FormCon extends Component {
     const { handleSubmit } = this.props
     return (
       <form >
-        <fieldset>
+        <fieldset className='form-per'>
           <legend>Personal</legend>
           <General 
             handleSubmit={ handleSubmit}
           />
         </fieldset>
-        <fieldset>
+        <fieldset className='form-edu'>
           <legend>Education</legend>
           <button className='btn-add' name='edCount'onClick={this.countUp}> + </button>
           {[...Array(this.state.edCount)].map((_, i) => 
@@ -71,7 +71,7 @@ export default class FormCon extends Component {
           
           
         </fieldset>
-        <fieldset>
+        <fieldset className='form-exp'>
           <legend>Experience</legend>
           { [...Array(this.state.exCount)].map((_, i) => 
           <Experience key={i} 
@@ -79,7 +79,7 @@ export default class FormCon extends Component {
           handleSubmit={handleSubmit}
           />
           )}
-          <button name='exCount' onClick={this.countUp}> Add</button>
+          <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
         </fieldset>
         <button> Submit</button>
       </form>

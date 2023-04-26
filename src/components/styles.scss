@@ -61,6 +61,7 @@ h1 {
 }
 button {
   width: 50px;
+  padding: 0px;
   cursor: pointer;
   transition: 0.2s all;
 
@@ -75,6 +76,9 @@ button {
 
 form {
   width: 28rem;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
   fieldset {
     border: 0;
     display: flex;
@@ -86,9 +90,20 @@ form {
     padding-bottom: 1rem;
     margin: 1rem;
     border-radius: 2%;
+    // height: 20em;
+  }
+  .form-per {
+    flex: 1;
+  }
+  .form-exp {
+    flex: 3;
+  }
+
+  .form-edu {
+    flex: 2;
   }
   legend {
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: bold;
     position: absolute;
     top: 15px;
@@ -104,15 +119,20 @@ form {
   }
   textarea {
     width: 20rem;
+    height: 5rem;
   }
   .btn-add {
-    display: flex;
-    font-size: 2rem;
+    // display: flex;
+    font-weight: bold;
+    font-size: 15px;
+    height: 2rem;
     position: absolute;
     top: 20px;
     right: 10px;
-  
-    
+    border-radius: 35%;
+    text-align: center;
+    // margin-top: auto;
+    // margin-bottom: auto;
 
   }
 }
@@ -121,11 +141,37 @@ form {
   display: flex;
   justify-content: space-around;
   background-color: #2f3648;
+  height: 100%;
   .overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // align-content: flex-start;
     width: 65%;
-    height: 100%;
+    height: 95%;
     background-color: #f7f8fa;
     margin: 1rem;
+    > div {
+      display: flex;
+      flex-direction: column;
+      
+      width: 95%;
+      border-bottom: 2px solid black;
+      padding: 1rem;
+    }
+   .overview-general {
+    align-items: center;
+
+   }
+   .overview-exp { 
+    align-items: flex-start;
+    flex-grow: 1;
    
+  }
+  .overview-edu {
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    border: none;
+  }
   }
 }

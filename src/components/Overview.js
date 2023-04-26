@@ -15,17 +15,21 @@ export default class Overview extends Component {
           <h2>Email</h2>
           <h2>Personal Website</h2>
         </div>
+        <div className='overview-exp'>
+          <h1>Experience</h1>
+          <h2>Company</h2>
+          <h2>Position Title</h2>
+          <h2>Location</h2>
+          <h2>Duration</h2>
+        </div>
+        <div className='overview-edu'>
+          <h1 className="education">Education</h1>
+          <h2 className="education-school">School Name</h2>
+          <h2 className="education-major">Major</h2>
+          <h2 className="education-grad">Graduation Year</h2>
+          <h2 className="education-degree">Degree</h2>
+        </div>
         
-        <h1>Experience</h1>
-        <h2>Company</h2>
-        <h2>Position Title</h2>
-        <h2>Location</h2>
-        <h2>Duration</h2>
-        <h1 className="education">Education</h1>
-        <h2 className="education-school">School Name</h2>
-        <h2 className="education-major">Major</h2>
-        <h2 className="education-grad">Graduation Year</h2>
-        <h2 className="education-degree">Degree</h2>
         
       </div>
       // general.map(item => <h1 key={item.id}>{item.fName}</h1>)

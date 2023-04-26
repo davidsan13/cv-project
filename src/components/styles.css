@@ -63,6 +63,7 @@ h1 {
 
 button {
   width: 50px;
+  padding: 0px;
   cursor: pointer;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
@@ -82,6 +83,14 @@ button:active {
 
 form {
   width: 28rem;
+  height: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 form fieldset {
@@ -101,8 +110,26 @@ form fieldset {
   border-radius: 2%;
 }
 
+form .form-per {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+form .form-exp {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+form .form-edu {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
 form legend {
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: bold;
   position: absolute;
   top: 15px;
@@ -134,16 +161,18 @@ form input:focus::placeholder {
 
 form textarea {
   width: 20rem;
+  height: 5rem;
 }
 
 form .btn-add {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 15px;
+  height: 2rem;
   position: absolute;
   top: 20px;
   right: 10px;
+  border-radius: 35%;
+  text-align: center;
 }
 
 #root {
@@ -153,12 +182,59 @@ form .btn-add {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background-color: #2f3648;
+  height: 100%;
 }
 
 #root .overview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 65%;
-  height: 100%;
+  height: 95%;
   background-color: #f7f8fa;
   margin: 1rem;
+}
+
+#root .overview > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 95%;
+  border-bottom: 2px solid black;
+  padding: 1rem;
+}
+
+#root .overview .overview-general {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#root .overview .overview-exp {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#root .overview .overview-edu {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 1rem;
+  border: none;
 }
 /*# sourceMappingURL=styles.css.map */

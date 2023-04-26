@@ -47,13 +47,16 @@ export default class Education extends Component {
         <input type="text" id="Degree" name="degree" placeholder="Degree" value={ed.degree} onChange={this.handleChange}/>
         <label htmlFor="Awards"> Awards</label>
         <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
-        <button name='edCount' onClick={onButtonClicked}>Delete</button>
-        <button onClick={(e) => {
-          e.preventDefault(); 
-          this.toggleEdit(); 
-          !edit && submit(ed,section, this.state)}}> 
-          {edit? "Edit": "Save"}
-        </button>
+        <div className='btns-container'>
+          <button name='edCount' onClick={onButtonClicked}>Delete</button>
+          <button onClick={(e) => {
+            e.preventDefault(); 
+            this.toggleEdit(); 
+            !edit && submit(ed,section, this.state)}}> 
+            {edit? "Edit": "Save"}
+          </button>
+        </div>
+        
       </>
     )
   }
