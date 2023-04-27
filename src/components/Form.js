@@ -59,6 +59,16 @@ export default class FormCon extends Component {
             handleSubmit={ handleSubmit}
           />
         </fieldset>
+        <fieldset className='form-exp'>
+          <legend>Experience</legend>
+          { [...Array(this.state.exCount)].map((_, i) => 
+          <Experience key={i} 
+          onButtonClicked={this.countDown}
+          handleSubmit={handleSubmit}
+          />
+          )}
+          <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
+        </fieldset>
         <fieldset className='form-edu'>
           <legend>Education</legend>
           <button className='btn-add' name='edCount'onClick={this.countUp}> + </button>
@@ -71,16 +81,7 @@ export default class FormCon extends Component {
           
           
         </fieldset>
-        <fieldset className='form-exp'>
-          <legend>Experience</legend>
-          { [...Array(this.state.exCount)].map((_, i) => 
-          <Experience key={i} 
-          onButtonClicked={this.countDown}
-          handleSubmit={handleSubmit}
-          />
-          )}
-          <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
-        </fieldset>
+        
         <button> Submit</button>
       </form>
     )

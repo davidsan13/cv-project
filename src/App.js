@@ -42,11 +42,16 @@ class App extends Component {
   }
 
   render() {
-    const { general } = this.state
+    const { general, exps, schools } = this.state
     return(
       <>
         <FormCon handleSubmit={this.onSubmitTask}/>
-        <Overview general={general}/>
+        <Overview 
+          general={general}
+          experience={exps}
+          schools={schools}
+        
+        />
       </>
       
     )

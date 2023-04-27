@@ -43,12 +43,13 @@ export default class Experience extends Component {
     const {handleSubmit} = this.props
     return (
       <>
-        <label htmlFor="title"> Position Title</label>
-        <input type="text" id="title" name="title" value={exp.title} placeholder="Position Title" onChange={this.handleChange}/>
         <label htmlFor="company"> Company</label>
         <input type="text" id="company" name="company" value={exp.company}  placeholder="Company" onChange={this.handleChange}/>
         <label htmlFor="location"> City</label>
-        <input type="text" id="location" name="location" value={exp.locatoin} placeholder="City" onChange={this.handleChange}/>
+        <input type="text" id="location" name="location" value={exp.location} placeholder="City" onChange={this.handleChange}/>
+        <label htmlFor="title"> Position Title</label>
+        <input type="text" id="title" name="title" value={exp.title} placeholder="Position Title" onChange={this.handleChange}/>
+      
         <label htmlFor="Duration"> Duration</label>
         <input type="text" id="Duration" name="duration" placeholder="Duration" onChange={this.handleChange}/>
         <label htmlFor="resp"> Responsibilities</label>

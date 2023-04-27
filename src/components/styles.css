@@ -24,13 +24,14 @@ section {
 html {
   height: 100%;
   font-size: 62.5%;
+  margin: 0;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
   line-height: 1;
-  height: 100vh;
-  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 ol,
@@ -62,8 +63,11 @@ h1 {
 }
 
 button {
-  width: 50px;
-  padding: 0px;
+  width: 75px;
+  padding: 2px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #bcbdc1;
   cursor: pointer;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
@@ -138,6 +142,7 @@ form legend {
 
 form input {
   width: 20rem;
+  font-size: 1.3rem;
   font-weight: 600;
   -webkit-transition: ease-in-out, color .35s ease-in-out;
   transition: ease-in-out, color .35s ease-in-out;
@@ -166,29 +171,52 @@ form textarea {
 
 form .btn-add {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 28px;
   height: 2rem;
   position: absolute;
-  top: 20px;
-  right: 10px;
+  top: 8px;
+  right: 15px;
   border-radius: 35%;
   text-align: center;
+  background-color: transparent;
+}
+
+form .btns-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+}
+
+form .btns-container > button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 #root {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #2f3648;
-  height: 100%;
+  min-height: 100%;
+  gap: 2.5rem;
 }
 
 #root .overview {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -196,8 +224,8 @@ form .btn-add {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 65%;
-  height: 95%;
+  max-width: 750px;
+  max-height: 850px;
   background-color: #f7f8fa;
   margin: 1rem;
 }
