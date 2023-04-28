@@ -72,7 +72,7 @@ export default class FormCon extends Component {
         <fieldset className='form-edu'>
           <legend>Education</legend>
           <button className='btn-add' name='edCount'onClick={this.countUp}> + </button>
-          {[...Array(this.state.edCount)].map((_, i) => 
+          {[...Array(this.state.edCount)].map((_, i) =>
           <Education key={schools[i-1] ? schools[i-1].id : i} 
             onButtonClicked={this.countDown}
             handleEdit={this.handleEdit}

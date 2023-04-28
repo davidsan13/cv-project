@@ -31,11 +31,12 @@ export default class Education extends Component {
     }))
   }
 
-  delete = (e)
+  
  
   render() {
     const {ed, edit, section} = this.state
     const {handleSubmit, onButtonClicked, handleDelete} = this.props
+    
   
     return (
       <>

@@ -39,16 +39,18 @@ class App extends Component {
         this.state[section].concat(item)
       }
     })
-    console.log(this.state.general)
+    console.log(this.state.schools)
   }
 
   delete(e, id) {
     
     const {name} = e.target
     const array = name === 'exCount' ? 'exps' : 'schools'
-    this.setState({
-      [array]: this.state[array].filter(item => item.id !== id)
+    this.setState(prevState => {
+        const newArray = prevState[array].filter(item => item.id !== id)
+        return {...prevState, [array]: [...newArray]}
     })
+    
     console.log(this.state.schools)
   }
 
