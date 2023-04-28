@@ -40,7 +40,7 @@ export default class Experience extends Component {
   }
   render() {
     const {exp, section,edit} = this.state
-    const {handleSubmit} = this.props
+    const {handleSubmit, handleDelete} = this.props
     return (
       <>
         <label htmlFor="company"> Company</label>
@@ -55,7 +55,7 @@ export default class Experience extends Component {
         <label htmlFor="resp"> Responsibilities</label>
         <textarea type="text" id="resp" name="resp" value={exp.resp} placeholder="Responsibilities" onChange={this.handleChange}/>
         <div className='btns-container'>
-          <button name='exCount' type="submit"> Delete</button>
+          <button name='exCount' type="submit" onClick={handleDelete}> Delete</button>
           <button onClick={(e) => {
             e.preventDefault();
             this.toggleEdit()

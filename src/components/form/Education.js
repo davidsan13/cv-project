@@ -30,10 +30,12 @@ export default class Education extends Component {
      edit: !prevState.edit
     }))
   }
+
+  delete = (e)
  
   render() {
     const {ed, edit, section} = this.state
-    const {submit, onButtonClicked} = this.props
+    const {handleSubmit, onButtonClicked, handleDelete} = this.props
   
     return (
       <>
@@ -48,11 +50,13 @@ export default class Education extends Component {
         <label htmlFor="Awards"> Awards</label>
         <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
         <div className='btns-container'>
-          <button name='edCount' onClick={onButtonClicked}>Delete</button>
+          <button name='edCount' onClick={(e) => 
+            {e.preventDefault(); onButtonClicked(e); handleDelete(e, ed.id)}}>
+            Delete</button>
           <button onClick={(e) => {
             e.preventDefault(); 
             this.toggleEdit(); 
-            !edit && submit(ed,section, this.state)}}> 
+            !edit && handleSubmit(ed,section, this.state)}}> 
             {edit? "Edit": "Save"}
           </button>
         </div>

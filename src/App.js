@@ -16,6 +16,7 @@ class App extends Component {
     };
   
     this.onSubmitTask = this.onSubmitTask.bind(this)
+    this.delete = this.delete.bind(this)
   }
 
   onSubmitTask = (item, section) => {
@@ -41,11 +42,25 @@ class App extends Component {
     console.log(this.state.general)
   }
 
+  delete(e, id) {
+    
+    const {name} = e.target
+    const array = name === 'exCount' ? 'exps' : 'schools'
+    this.setState({
+      [array]: this.state[array].filter(item => item.id !== id)
+    })
+    console.log(this.state.schools)
+  }
+
   render() {
     const { general, exps, schools } = this.state
     return(
       <>
-        <FormCon handleSubmit={this.onSubmitTask}/>
+        <FormCon 
+          handleSubmit={this.onSubmitTask}
+          handleDelete={this.delete}
+          schools={schools}
+        />
         <Overview 
           general={general}
           experience={exps}

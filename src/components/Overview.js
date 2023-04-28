@@ -34,12 +34,14 @@ export default class Overview extends Component {
             </div>)
           }
           {experience.length === 0 ?
-             <div className='overview-exp'>
+            <div className='overview-exp'>
               <h1>Experience</h1>
-              <h2>Company</h2>
-              <h2>Position Title</h2>
-              <h2>Location</h2>
-              <h2>Duration</h2>
+              <div className='exp'>
+                <h2>Company - Position Title</h2>
+                <h2>Position Title</h2>
+                <h2>Location</h2>
+                <h2>Duration</h2>
+              </div>
             </div> :
             <div className='overview-exp'>
               <h1>Experience</h1>
@@ -52,13 +54,28 @@ export default class Overview extends Component {
             </div>
           }
        
-        <div className='overview-edu'>
+        {schools.length === 0 ?
+          <div className='overview-edu'>
           <h1 className="education">Education</h1>
-          <h2 className="education-school">School Name</h2>
-          <h2 className="education-major">Major</h2>
-          <h2 className="education-grad">Graduation Year</h2>
-          <h2 className="education-degree">Degree</h2>
-        </div>
+          <div className="edu">
+              <h2 className="education-school">School Name</h2>
+              <h2 className="education-major">Major</h2>
+              <h2 className="education-grad">Graduation Year</h2>
+              <h2 className="education-degree">Degree</h2>
+            </div>
+          </div> :
+          <div className='overview-edu'>
+            <h1>Education</h1>
+            {schools.map((item, index ) => 
+            <div key={item.id}className="exp">
+              <h2> {item.school}</h2>
+              <h2> {item.major}</h2>
+              <h2> {item.year}</h2>
+              <h2> {item.degree}</h2>
+            </div>)}
+          </div>
+        }
+        
         
         
       </div>

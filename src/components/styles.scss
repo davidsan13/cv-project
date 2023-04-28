@@ -59,7 +59,7 @@ table {
 
 h1 {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 button {
   width: 75px;
@@ -84,6 +84,7 @@ form {
   height: 95%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   fieldset {
     border: 0;
     display: flex;
@@ -131,14 +132,14 @@ form {
     // display: flex;
     font-weight: bold;
     font-size: 28px;
-    height: 2rem;
+    width: 3rem;
     position: absolute;
     top: 8px;
     right: 15px;
     border-radius: 35%;
     text-align: center;
     background-color: transparent;
-    // margin-bottom: auto;
+    // border: solid;
   }
   .btns-container {
     display: flex;
@@ -180,17 +181,34 @@ form {
     }
    .overview-general {
     align-items: center;
+    font-size: 1.5rem;
 
    }
-   .overview-exp { 
+   .overview-exp {
+    display: flex;
     align-items: flex-start;
     flex-grow: 1;
-   
+    gap: .7rem;
+    .exp {
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+      font-size: 1.4rem;
+      padding-left: 1rem;
+    }
   }
-  .overview-edu {
-    align-items: flex-start;
-    margin-bottom: 1rem;
-    border: none;
-  }
+    .overview-edu {
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      border: none;
+      gap: .7rem;
+      .edu {
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        font-size: 1.4rem;
+        padding-left: 1rem;
+      }
+    }
   }
 }

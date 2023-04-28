@@ -40,7 +40,6 @@ export default class FormCon extends Component {
   }
  
   countDown(e) {
-    e.preventDefault()
     const {name} = e.target
     this.setState({
       [name]: this.state[name] - 1 ,
@@ -50,7 +49,7 @@ export default class FormCon extends Component {
  
 
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit, handleDelete, schools } = this.props
     return (
       <form >
         <fieldset className='form-per'>
@@ -63,8 +62,9 @@ export default class FormCon extends Component {
           <legend>Experience</legend>
           { [...Array(this.state.exCount)].map((_, i) => 
           <Experience key={i} 
-          onButtonClicked={this.countDown}
-          handleSubmit={handleSubmit}
+            onButtonClicked={this.countDown}
+            handleSubmit={handleSubmit}
+            handleDelete={handleDelete}
           />
           )}
           <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
@@ -73,10 +73,12 @@ export default class FormCon extends Component {
           <legend>Education</legend>
           <button className='btn-add' name='edCount'onClick={this.countUp}> + </button>
           {[...Array(this.state.edCount)].map((_, i) => 
-          <Education key={i} 
-          onButtonClicked={this.countDown}
-          handleEdit={this.handleEdit}
-          handleSubmit={handleSubmit}/>
+          <Education key={schools[i-1] ? schools[i-1].id : i} 
+            onButtonClicked={this.countDown}
+            handleEdit={this.handleEdit}
+            handleSubmit={handleSubmit}
+            handleDelete={handleDelete}
+          />
           )}
           
           

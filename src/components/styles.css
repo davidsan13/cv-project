@@ -59,7 +59,7 @@ table {
 
 h1 {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 button {
@@ -95,6 +95,9 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 form fieldset {
@@ -172,7 +175,7 @@ form textarea {
 form .btn-add {
   font-weight: bold;
   font-size: 28px;
-  height: 2rem;
+  width: 3rem;
   position: absolute;
   top: 8px;
   right: 15px;
@@ -247,15 +250,33 @@ form .btns-container > button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 1.5rem;
 }
 
 #root .overview .overview-exp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  gap: .7rem;
+}
+
+#root .overview .overview-exp .exp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .2rem;
+  font-size: 1.4rem;
+  padding-left: 1rem;
 }
 
 #root .overview .overview-edu {
@@ -264,5 +285,19 @@ form .btns-container > button {
           align-items: flex-start;
   margin-bottom: 1rem;
   border: none;
+  gap: .7rem;
+}
+
+#root .overview .overview-edu .edu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .2rem;
+  font-size: 1.4rem;
+  padding-left: 1rem;
 }
 /*# sourceMappingURL=styles.css.map */
