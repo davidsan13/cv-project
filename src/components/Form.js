@@ -75,7 +75,8 @@ export default class FormCon extends Component {
           <legend>Personal</legend>
           <General 
             handleSubmit={ handleSubmit}
-            general={general}
+            handleChange={handleChange}
+            general={general[0]}
           />
         </fieldset>
         <fieldset className='form-exp'>
@@ -85,7 +86,8 @@ export default class FormCon extends Component {
             onButtonClicked={this.countDown}
             handleSubmit={handleSubmit}
             handleDelete={handleDelete}
-            exps={exps}
+            handleChange={handleChange}
+            exps={exps[0]}
           />
           )}
           <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
@@ -93,9 +95,7 @@ export default class FormCon extends Component {
         <fieldset className='form-edu'>
           <legend>Education</legend>
           <button className='btn-add' name='edCount'onClick={handleAdd}> + </button>
-          
           {educationItems}
-          
         </fieldset>
         
         <button> Submit</button>

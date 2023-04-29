@@ -26,21 +26,21 @@ export default class General extends Component {
   }
 
   render() {
-    const {general, section, edit} = this.state
-    const {handleSubmit} = this.props
+    const { section, edit} = this.state
+    const {handleSubmit, handleChange, general} = this.props
     return (
       <>
         
         <label htmlFor="fName"> First Name</label>
-        <input type="text" id="fName" name="fName" value={general.fName} placeholder="First Name" onChange={this.handleChange} required/>
+        <input type="text" id="fName" name="fName" data-section="general" value={general.fName} placeholder="First Name" onChange={(e) => handleChange(e, general.id)} required/>
         <label htmlFor="lName"> Last Name</label>
-        <input type="text" id="lName" name="lName" value={general.lName} placeholder="Last Name" onChange={this.handleChange} required/>
+        <input type="text" id="lName" name="lName" data-section="general" value={general.lName} placeholder="Last Name" onChange={(e) => handleChange(e, general.id)} required/>
         <label htmlFor="pNumber"> Phone Number</label>
-        <input type="text" id="pNumber" name="pNumber" value={general.pNumber} placeholder="Phone Number" onChange={this.handleChange}/>
+        <input type="text" id="pNumber" name="pNumber" data-section="general" value={general.pNumber} placeholder="Phone Number" onChange={(e) => handleChange(e, general.id)}/>
         <label htmlFor="email"> Email</label>
-        <input type="email" id="email" name="email" value={general.email} placeholder="Email" onChange={this.handleChange}/>
+        <input type="email" id="email" name="email" data-section="general" value={general.email} placeholder="Email" onChange={(e) => handleChange(e, general.id)}/>
         <label htmlFor="website"> Personal Website</label>
-        <input type="text" id="website" name="website" value={general.website} placeholder="Personal Website" onChange={this.handleChange}/>
+        <input type="text" id="website" name="website" data-section="general" value={general.website} placeholder="Personal Website" onChange={(e) => handleChange(e, general.id)}/>
         <button onClick={(e) => {
           e.preventDefault();
           !edit && handleSubmit(general,section, this.state)}}> 

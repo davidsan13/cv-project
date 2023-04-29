@@ -10,13 +10,16 @@ class App extends Component {
     super(props);
 
     this.state = {
-      general: { 
+      general: [
+        { 
         fName: "",
         lName: "",
         pNumber: "",
         email: "",
         website: "",
-        id: uniqid()},
+        id: uniqid(),
+        }
+      ],
       exps: [
         {
           id: uniqid(),
@@ -70,18 +73,17 @@ class App extends Component {
   handleChange = (e, id) => {
     const {name, value} = e.target
     const {section} = e.target.dataset
-    console.log(id)
     this.setState((prevState) => {
       const newItem = prevState[section].map(item => {
         if(item.id === id) {
           return {...item, [name]: value}
           
         }
-        return console.log(id)
+        return item
       }) 
       return {...prevState, [section]: [...newItem] }
     })
-    
+    console.log(this.state.general)
   }
 
   handleAdd = (e) => {

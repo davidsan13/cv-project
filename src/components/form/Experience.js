@@ -40,20 +40,19 @@ export default class Experience extends Component {
   }
   render() {
     const {exp, section,edit} = this.state
-    const {handleSubmit, handleDelete} = this.props
+    const {handleSubmit, handleDelete, handleChange, exps} = this.props
     return (
       <>
         <label htmlFor="company"> Company</label>
-        <input type="text" id="company" name="company" value={exp.company}  placeholder="Company" onChange={this.handleChange}/>
+        <input type="text" id="company" name="company" data-section="exps" value={exps.company}  placeholder="Company" onChange={(e) => handleChange(e, exps.id)}/>
         <label htmlFor="location"> City</label>
-        <input type="text" id="location" name="location" value={exp.location} placeholder="City" onChange={this.handleChange}/>
+        <input type="text" id="location" name="location" data-section="exps" value={exps.location} placeholder="City" onChange={(e) => handleChange(e, exps.id)}/>
         <label htmlFor="title"> Position Title</label>
-        <input type="text" id="title" name="title" value={exp.title} placeholder="Position Title" onChange={this.handleChange}/>
-      
+        <input type="text" id="title" name="title" data-section="exps" value={exps.title} placeholder="Position Title" onChange={(e) => handleChange(e, exps.id)}/>
         <label htmlFor="Duration"> Duration</label>
-        <input type="text" id="Duration" name="duration" placeholder="Duration" onChange={this.handleChange}/>
+        <input type="text" id="Duration" name="duration" placeholder="Duration" onChange={(e) => handleChange(e, exps.id)}/>
         <label htmlFor="resp"> Responsibilities</label>
-        <textarea type="text" id="resp" name="resp" value={exp.resp} placeholder="Responsibilities" onChange={this.handleChange}/>
+        <textarea type="text" id="resp" name="resp" data-section="exps" value={exps.resp} placeholder="Responsibilities" onChange={(e) => handleChange(e, exps.id)}/>
         <div className='btns-container'>
           <button name='exCount' type="submit" onClick={handleDelete}> Delete</button>
           <button onClick={(e) => {

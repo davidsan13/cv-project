@@ -35,7 +35,7 @@ export default class Education extends Component {
   
     return (
       <>
-        {console.log(schools.id)}
+       
         <label htmlFor="School"> School</label>
         <input type="text" id="School" name="school" data-section="schools" placeholder="School" value={schools.school} onChange={(e) => handleChange(e, schools.id)} disabled={edit}/>
         <label htmlFor="Major"> Major</label>
