@@ -18,7 +18,7 @@ export default class Overview extends Component {
     const { schools, general, experience} = this.props
     return (
       <div className='overview'>
-          {general.length === 0 ? 
+          {/* {general.length === 0 ? 
             <div className='overview-general'>
               <h1>Full Name</h1> 
               <h2>Phone Number</h2>
@@ -32,7 +32,7 @@ export default class Overview extends Component {
               <h2> {item.email}</h2>
               <h2> {item.website}</h2>
             </div>)
-          }
+          } */}
           {experience.length === 0 ?
             <div className='overview-exp'>
               <h1>Experience</h1>

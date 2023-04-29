@@ -18,12 +18,7 @@ export default class Education extends Component {
     }
   }
 
-  handleChange = (e) => {
-    const {name, value} = e.target
-    this.setState((prevState) => {
-      return {...prevState, ed: {...prevState.ed,[name]:value}
-    }})
-  }
+
 
   toggleEdit = (e) => {
     this.setState(prevState => ({
@@ -35,23 +30,24 @@ export default class Education extends Component {
  
   render() {
     const {ed, edit, section} = this.state
-    const {handleSubmit, onButtonClicked, handleDelete} = this.props
+    const {handleSubmit, onButtonClicked, handleDelete, schools, handleChange} = this.props
     
   
     return (
       <>
+        {console.log(schools.id)}
         <label htmlFor="School"> School</label>
-        <input type="text" id="School" name="school" placeholder="School" value={ed.school} onChange={this.handleChange} disabled={edit}/>
+        <input type="text" id="School" name="school" data-section="schools" placeholder="School" value={schools.school} onChange={(e) => handleChange(e, schools.id)} disabled={edit}/>
         <label htmlFor="Major"> Major</label>
-        <input type="text" id="Major" name="major" placeholder="Major" value={ed.major} onChange={this.handleChange} />
+        <input type="text" id="Major" name="major" data-section="schools"  placeholder="Major" value={schools.major} onChange={(e) => handleChange(e, schools.id)} />
         <label htmlFor="Year"> Graduation Year</label>
-        <input type="text" id="Year" name="year" value={ed.year} placeholder="Graduation Year" onChange={this.handleChange}/>
+        <input type="text" id="Year" name="year" data-section="schools"  value={schools.year} placeholder="Graduation Year" onChange={(e) => handleChange(e, schools.id)}/>
         <label htmlFor="Degree"> Degree</label>
-        <input type="text" id="Degree" name="degree" placeholder="Degree" value={ed.degree} onChange={this.handleChange}/>
+        <input type="text" id="Degree" name="degree" data-section="schools"  placeholder="Degree" value={schools.degree} onChange={(e) => handleChange(e, schools.id)}/>
         <label htmlFor="Awards"> Awards</label>
         <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
         <div className='btns-container'>
-          <button name='edCount' onClick={(e) => 
+          <button name='edCount' data-section="schools" onClick={(e) => 
             {e.preventDefault(); onButtonClicked(e); handleDelete(e, ed.id)}}>
             Delete</button>
           <button onClick={(e) => {

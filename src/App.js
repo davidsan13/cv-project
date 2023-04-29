@@ -3,20 +3,45 @@ import './App.css';
 import React, { Component } from "react";
 import FormCon from './components/Form';
 import Overview from './components/Overview'
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      schools: [],
-      general: [],
-      exps: [],
+      general: { 
+        fName: "",
+        lName: "",
+        pNumber: "",
+        email: "",
+        website: "",
+        id: uniqid()},
+      exps: [
+        {
+          id: uniqid(),
+          title: '',
+          company: '',
+          location: '',
+          resp: '',
+        }
+      ],
+      schools: [
+        {
+          school: "",
+          major: "", 
+          year: "",
+          degree: "",
+          id: uniqid(),
+        }
+      ],
       
     };
   
     this.onSubmitTask = this.onSubmitTask.bind(this)
     this.delete = this.delete.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
   }
 
   onSubmitTask = (item, section) => {
@@ -42,17 +67,49 @@ class App extends Component {
     console.log(this.state.schools)
   }
 
-  delete(e, id) {
+  handleChange = (e, id) => {
+    const {name, value} = e.target
+    const {section} = e.target.dataset
+    console.log(id)
+    this.setState((prevState) => {
+      const newItem = prevState[section].map(item => {
+        if(item.id === id) {
+          return {...item, [name]: value}
+          
+        }
+        return console.log(id)
+      }) 
+      return {...prevState, [section]: [...newItem] }
+    })
     
+  }
+
+  handleAdd = (e) => {
+    const {section} = e.target.dataset
+    this.setState(prevState => ({
+      schools: [
+        ...prevState.schools,
+        {
+          school: "",
+          major: "", 
+          year: "",
+          degree: "",
+          id: uniqid(),
+        }
+      ]
+    }))
+    console.log(this.state.schools)
+  }
+  delete(e, id) {
     const {name} = e.target
+    // const {section} = e.target.dataset
     const array = name === 'exCount' ? 'exps' : 'schools'
     this.setState(prevState => {
         const newArray = prevState[array].filter(item => item.id !== id)
         return {...prevState, [array]: [...newArray]}
     })
-    
-    console.log(this.state.schools)
   }
+
 
   render() {
     const { general, exps, schools } = this.state
@@ -61,14 +118,20 @@ class App extends Component {
         <FormCon 
           handleSubmit={this.onSubmitTask}
           handleDelete={this.delete}
+          handleChange={this.handleChange}
+          handleAdd={this.handleAdd}
           schools={schools}
+          general={general}
+          exps={exps}
+          
+        
         />
-        <Overview 
+        {/* <Overview 
           general={general}
           experience={exps}
           schools={schools}
         
-        />
+        /> */}
       </>
       
     )

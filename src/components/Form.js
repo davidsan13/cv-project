@@ -49,13 +49,33 @@ export default class FormCon extends Component {
  
 
   render() {
-    const { handleSubmit, handleDelete, schools } = this.props
+    const { 
+      handleSubmit, 
+      handleDelete, 
+      handleChange, 
+      schools, 
+      general, 
+      exps, 
+      handleAdd
+      } = this.props
+
+    const educationItems = schools.map(item => 
+      <Education 
+        onButtonClicked={this.countDown}
+        handleEdit={this.handleEdit}
+        handleSubmit={handleSubmit}
+        handleDelete={handleDelete}
+        handleChange={handleChange}
+        schools={item}
+      />
+    )
     return (
       <form >
         <fieldset className='form-per'>
           <legend>Personal</legend>
           <General 
             handleSubmit={ handleSubmit}
+            general={general}
           />
         </fieldset>
         <fieldset className='form-exp'>
@@ -65,22 +85,16 @@ export default class FormCon extends Component {
             onButtonClicked={this.countDown}
             handleSubmit={handleSubmit}
             handleDelete={handleDelete}
+            exps={exps}
           />
           )}
           <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
         </fieldset>
         <fieldset className='form-edu'>
           <legend>Education</legend>
-          <button className='btn-add' name='edCount'onClick={this.countUp}> + </button>
-          {[...Array(this.state.edCount)].map((_, i) =>
-          <Education key={schools[i-1] ? schools[i-1].id : i} 
-            onButtonClicked={this.countDown}
-            handleEdit={this.handleEdit}
-            handleSubmit={handleSubmit}
-            handleDelete={handleDelete}
-          />
-          )}
+          <button className='btn-add' name='edCount'onClick={handleAdd}> + </button>
           
+          {educationItems}
           
         </fieldset>
         
