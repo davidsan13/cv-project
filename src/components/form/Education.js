@@ -2,40 +2,12 @@ import React, { Component } from "react";
 import uniqid from 'uniqid';
 
 export default class Education extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      ed: {
-        school: "",
-        major: "", 
-        year: "",
-        degree: "",
-        id: uniqid(), 
-      },
-      section: "schools",
-      edit: false,
-    }
-  }
-
-
-
-  toggleEdit = (e) => {
-    this.setState(prevState => ({
-     edit: !prevState.edit
-    }))
-  }
-
   
- 
   render() {
-    const {ed, edit, section} = this.state
     const {handleSubmit, onButtonClicked, handleDelete, schools, handleChange} = this.props
-    
   
     return (
       <>
-       
         <label htmlFor="School"> School</label>
         <input type="text" id="School" name="school" data-section="schools" placeholder="School" value={schools.school} onChange={(e) => handleChange(e, schools.id)} disabled={schools.edit}/>
         <label htmlFor="Major"> Major</label>
@@ -56,7 +28,6 @@ export default class Education extends Component {
             {schools.edit? "Edit": "Save"}
           </button>
         </div>
-        
       </>
     )
   }

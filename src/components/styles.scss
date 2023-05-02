@@ -163,12 +163,14 @@ form {
   .overview {
     display: flex;
     flex: 1 1 auto;
-    // position: fixed;
+    top: 5px;
+    position: sticky;
     flex-direction: column;
     align-items: center;
+    // align-self: flex-start;
     // align-content: flex-start;
     max-width: 750px;
-    max-height: 850px;
+    max-height: 725px;
     background-color: #f7f8fa;
     margin: 1rem;
     > div {

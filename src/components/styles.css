@@ -220,6 +220,9 @@ form .btns-container > button {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  top: 5px;
+  position: -webkit-sticky;
+  position: sticky;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -228,7 +231,7 @@ form .btns-container > button {
       -ms-flex-align: center;
           align-items: center;
   max-width: 750px;
-  max-height: 850px;
+  max-height: 725px;
   background-color: #f7f8fa;
   margin: 1rem;
 }

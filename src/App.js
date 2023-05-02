@@ -141,12 +141,12 @@ class App extends Component {
           
         
         />
-        {/* <Overview 
+        <Overview 
           general={general}
           experience={exps}
           schools={schools}
         
-        /> */}
+        />
       </>
       
     )
