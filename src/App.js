@@ -18,6 +18,7 @@ class App extends Component {
         email: "",
         website: "",
         id: uniqid(),
+        edit: false,
         }
       ],
       exps: [
@@ -27,6 +28,7 @@ class App extends Component {
           company: '',
           location: '',
           resp: '',
+          edit: false,
         }
       ],
       schools: [
@@ -36,6 +38,7 @@ class App extends Component {
           year: "",
           degree: "",
           id: uniqid(),
+          edit: false,
         }
       ],
       
@@ -47,28 +50,25 @@ class App extends Component {
     this.handleAdd = this.handleAdd.bind(this)
   }
 
-  onSubmitTask = (item, section) => {
-    const result = this.state[section].filter(school => school.id === item.id)
-
-    this.setState(prevState => {
-      const newArray = []
-      for(let i = 0; i < prevState[section].length; i++) {
-        const currentItem = prevState[section][i]
-        if(currentItem.id === item.id) {
-          const updatedSchools = item
-          newArray.push(updatedSchools)
-        } else {
-          newArray.push(currentItem)
+  onSubmitTask = (e,id) => {
+    const {name} = e.target
+    const {section} = e.target.dataset
+    this.setState((prevState) => {
+      const newItem = prevState[section].map(item => {
+        console.log(item.edit)
+        if(item.id === id) {
+          return {...item, [name]: !item.edit}
+          
         }
-      }
-      return {
-        [section]: result.length > 0 ? 
-        newArray : 
-        this.state[section].concat(item)
-      }
+        return item
+      }) 
+      return {...prevState, [section]: [...newItem] }
     })
-    console.log(this.state.schools)
+    console.log(this.state.exps.edit)
   }
+  // onSubmitTask = (item, section) => {
+    
+  // }
 
   handleChange = (e, id) => {
     const {name, value} = e.target
@@ -83,13 +83,15 @@ class App extends Component {
       }) 
       return {...prevState, [section]: [...newItem] }
     })
-    console.log(this.state.general)
   }
+
 
   handleAdd = (e) => {
     const {section} = e.target.dataset
-    this.setState(prevState => ({
-      schools: [
+    this.setState(prevState => (
+      section === 'schools' ?
+      {
+        schools: [
         ...prevState.schools,
         {
           school: "",
@@ -98,17 +100,28 @@ class App extends Component {
           degree: "",
           id: uniqid(),
         }
-      ]
-    }))
-    console.log(this.state.schools)
+      ]} :
+      {
+        exps: [
+          ...prevState.exps,
+          {
+            id: uniqid(),
+            title: '',
+            company: '',
+            location: '',
+            resp: '',
+          }
+        ]
+      }
+    ))
+    console.log(this.state.exps)
   }
   delete(e, id) {
     const {name} = e.target
     // const {section} = e.target.dataset
-    const array = name === 'exCount' ? 'exps' : 'schools'
     this.setState(prevState => {
-        const newArray = prevState[array].filter(item => item.id !== id)
-        return {...prevState, [array]: [...newArray]}
+        const newArray = prevState[name].filter(item => item.id !== id)
+        return {...prevState, [name]: [...newArray]}
     })
   }
 

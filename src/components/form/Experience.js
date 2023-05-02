@@ -54,13 +54,15 @@ export default class Experience extends Component {
         <label htmlFor="resp"> Responsibilities</label>
         <textarea type="text" id="resp" name="resp" data-section="exps" value={exps.resp} placeholder="Responsibilities" onChange={(e) => handleChange(e, exps.id)}/>
         <div className='btns-container'>
-          <button name='exCount' type="submit" onClick={handleDelete}> Delete</button>
-          <button onClick={(e) => {
+          <button name='exps' type="submit" onClick={(e)=> handleDelete(e, exps.id)}> Delete</button>
+          <button name='edit' data-section="exps" onClick={(e) => {
             e.preventDefault();
-            this.toggleEdit()
-            console.log(edit)
-            !edit && handleSubmit(exp,section, this.state)}}> 
-            {edit? "Edit": "Save"}
+            // this.toggleEdit()
+            handleSubmit(e,exps.id)
+            // console.log(edit)
+            // !exps.edit && handleSubmit(e, exps.id)
+            }}> 
+            {exps.edit? "Edit": "Save"}
           </button>
         </div>
         

@@ -60,8 +60,7 @@ export default class FormCon extends Component {
       } = this.props
 
     const educationItems = schools.map(item => 
-      <Education 
-        onButtonClicked={this.countDown}
+      <Education key={item.id}
         handleEdit={this.handleEdit}
         handleSubmit={handleSubmit}
         handleDelete={handleDelete}
@@ -69,6 +68,15 @@ export default class FormCon extends Component {
         schools={item}
       />
     )
+
+    const expItems = exps.map(item => 
+      <Experience key={item.id}
+        handleSubmit={handleSubmit}
+        handleDelete={handleDelete}
+        handleChange={handleChange}
+        exps={item}
+      />
+      )
     return (
       <form >
         <fieldset className='form-per'>
@@ -81,7 +89,7 @@ export default class FormCon extends Component {
         </fieldset>
         <fieldset className='form-exp'>
           <legend>Experience</legend>
-          { [...Array(this.state.exCount)].map((_, i) => 
+          {/* { [...Array(this.state.exCount)].map((_, i) => 
           <Experience key={i} 
             onButtonClicked={this.countDown}
             handleSubmit={handleSubmit}
@@ -89,12 +97,13 @@ export default class FormCon extends Component {
             handleChange={handleChange}
             exps={exps[0]}
           />
-          )}
-          <button className='btn-add'name='exCount' onClick={this.countUp}> + </button>
+          )} */}
+          {expItems}
+          <button className='btn-add' data-section="exps"name='exCount' onClick={handleAdd}> + </button>
         </fieldset>
         <fieldset className='form-edu'>
           <legend>Education</legend>
-          <button className='btn-add' name='edCount'onClick={handleAdd}> + </button>
+          <button className='btn-add' data-section="schools" name='edCount'onClick={handleAdd}> + </button>
           {educationItems}
         </fieldset>
         

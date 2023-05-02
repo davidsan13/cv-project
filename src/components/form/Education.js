@@ -47,8 +47,8 @@ export default class Education extends Component {
         <label htmlFor="Awards"> Awards</label>
         <input type="text" id="Awards" name="awards" placeholder="Awards" /> 
         <div className='btns-container'>
-          <button name='edCount' data-section="schools" onClick={(e) => 
-            {e.preventDefault(); onButtonClicked(e); handleDelete(e, ed.id)}}>
+          <button name='schools' data-section="schools" onClick={(e) => 
+             handleDelete(e, schools.id)}>
             Delete</button>
           <button onClick={(e) => {
             e.preventDefault(); 
