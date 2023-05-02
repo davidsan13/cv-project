@@ -64,7 +64,7 @@ class App extends Component {
       }) 
       return {...prevState, [section]: [...newItem] }
     })
-    console.log(this.state.exps.edit)
+    console.log(this.state.schools[0])
   }
   // onSubmitTask = (item, section) => {
     
