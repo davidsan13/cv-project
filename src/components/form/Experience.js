@@ -14,8 +14,10 @@ export default class Experience extends Component {
         <input type="text" id="location" name="location" data-section="exps" value={exps.location} placeholder="City" onChange={(e) => handleChange(e, exps.id)} disabled={exps.edit}/>
         <label htmlFor="title"> Position Title</label>
         <input type="text" id="title" name="title" data-section="exps" value={exps.title} placeholder="Position Title" onChange={(e) => handleChange(e, exps.id)} disabled={exps.edit}/>
-        <label htmlFor="Duration"> Duration</label>
-        <input type="text" id="Duration" name="duration" placeholder="Duration" onChange={(e) => handleChange(e, exps.id)} disabled={exps.edit}/>
+        <label htmlFor="from"> From</label>
+        <input type="text" id="from" name="from" data-section="exps" value={exps.from }placeholder="From: YYYY" onChange={(e) => handleChange(e, exps.id)} disabled={exps.edit}/>
+        <label htmlFor="to"> To</label>
+        <input type="text" id="to" name="to" data-section="exps" placeholder="To: YYYY" onChange={(e) => handleChange(e, exps.id)} disabled={exps.edit}/>
         <label htmlFor="resp"> Responsibilities</label>
         <textarea type="text" id="resp" name="resp" data-section="exps" value={exps.resp} placeholder="Responsibilities" onChange={(e) => handleChange(e, exps.id)} disabled={exps.edit}/>
         <div className='btns-container'>

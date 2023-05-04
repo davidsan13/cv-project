@@ -27,6 +27,8 @@ class App extends Component {
           title: '',
           company: '',
           location: '',
+          from: '',
+          to: '',
           resp: '',
           edit: false,
         }

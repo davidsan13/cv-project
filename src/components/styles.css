@@ -143,7 +143,7 @@ form legend {
   left: 10px;
 }
 
-form input {
+form input, form textarea {
   width: 20rem;
   font-size: 1.3rem;
   font-weight: 600;
@@ -151,19 +151,19 @@ form input {
   transition: ease-in-out, color .35s ease-in-out;
 }
 
-form input:focus::-webkit-input-placeholder {
+form input:focus::-webkit-input-placeholder, form textarea:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-form input:focus:-ms-input-placeholder {
+form input:focus:-ms-input-placeholder, form textarea:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-form input:focus::-ms-input-placeholder {
+form input:focus::-ms-input-placeholder, form textarea:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-form input:focus::placeholder {
+form input:focus::placeholder, form textarea:focus::placeholder {
   color: transparent;
 }
 
@@ -249,6 +249,11 @@ form .btns-container > button {
   padding: 1rem;
 }
 
+#root .overview .item-header {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
 #root .overview .overview-general {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -269,7 +274,7 @@ form .btns-container > button {
   gap: .7rem;
 }
 
-#root .overview .overview-exp .exp {
+#root .overview .item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,18 +294,5 @@ form .btns-container > button {
   margin-bottom: 1rem;
   border: none;
   gap: .7rem;
-}
-
-#root .overview .overview-edu .edu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: .2rem;
-  font-size: 1.4rem;
-  padding-left: 1rem;
 }
 /*# sourceMappingURL=styles.css.map */
