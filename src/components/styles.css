@@ -274,6 +274,20 @@ form .btns-container > button {
   gap: .7rem;
 }
 
+#root .overview .overview-exp .company-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+}
+
+#root .overview .overview-exp .duration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .3rem;
+}
+
 #root .overview .item {
   display: -webkit-box;
   display: -ms-flexbox;

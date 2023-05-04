@@ -58,7 +58,6 @@ export default class FormCon extends Component {
           <button className='btn-add' data-section="schools" name='edCount'onClick={handleAdd}> + </button>
           {educationItems}
         </fieldset>
-        <button> Submit</button>
       </form>
     )
   }

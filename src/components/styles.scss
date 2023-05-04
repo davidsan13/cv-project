@@ -195,7 +195,14 @@ form {
     align-items: flex-start;
     flex-grow: 1;
     gap: .7rem;
-    
+    .company-title {
+      display: flex;
+      gap: .5rem;
+    }
+    .duration {
+      display: flex;
+      gap: .3rem;
+    }
     }
     .item {
       display: flex;
